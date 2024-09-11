@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Button, Card, Col, Row } from "react-bootstrap";
 import apiFilmes from "../apis/apiFilmes";
 import Pagina from "../components/Pagina";
 
@@ -35,13 +35,32 @@ export default function page() {
 
     return (
         <Pagina titulo="Filmes">
-            <Row>
+            <Row md={4}>
 
                 {/* pega cada item da lista e executa uma função */}
                 {filmes.map(filmes => {
                     return (
-                        <Col>
-                            <p>{filmes.original_title}</p>
+                        // padding up e down
+                        <Col className="py-2">
+                            {/* ocupa 100% do tamanho possivel */}
+                            <Card style={{ height: '100%' }}>
+                                <Card.Img src={"https://image.tmdb.org/t/p/w500/" + filmes.poster_path} />
+                                <Card.Body>
+                                    <Card.Title>{filmes.original_title}</Card.Title>
+                                    <p>
+                                        <b>Nota:</b>
+                                        {filmes.vote_average}  ⭐
+                                    </p>
+                                </Card.Body>
+
+                                <Card.Footer className="text-end">
+                                    <Button>Detalhes</Button>
+                                </Card.Footer>
+                            </Card>
+
+                            {/* <p>{filmes.original_title}</p>
+                            <p>{filmes.vote_average}</p>
+                            <p>{filmes.poster_path}</p> */}
                         </Col>
                     )
                 })}
