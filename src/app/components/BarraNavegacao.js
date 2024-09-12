@@ -15,7 +15,9 @@ export default function BarraNavegacao() {
                         {/* dropdown */}
                         <NavDropdown title="Filmes" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/filmes">Filmes Populares</NavDropdown.Item>
-
+                            <NavDropdown.Item href="/filmes/top">Melhores Avaliados</NavDropdown.Item>
+                            <NavDropdown.Item href="/filmes/cartaz">Em Cartaz</NavDropdown.Item>
+                            <NavDropdown.Item href="/filmes/lancamento">Lançamentos</NavDropdown.Item>
                         </NavDropdown>
 
                         {/* link */}

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
-import apiFilmes from "../apis/apiFilmes";
-import Pagina from "../components/Pagina";
+import apiFilmes from "@/app/apis/apiFilmes";
+import Pagina from "@/app/components/Pagina";
 
 export default function page() {
     // uso de estado na tela, apenas quando alcançar
@@ -22,7 +22,7 @@ export default function page() {
 
     // toda requisição deve ser async
     async function buscarFilmes() {
-        const resultado = await apiFilmes.get("/movie/popular?language=pt-BR");
+        const resultado = await apiFilmes.get("/movie/top_rated?language=pt-BR");
 
         // a resposta da busca vem para cá
         console.log(resultado.data.results);
@@ -34,7 +34,7 @@ export default function page() {
     }
 
     return (
-        <Pagina titulo="Filmes Populares">
+        <Pagina titulo="Filmes Melhores Avaliados">
             <Row md={4}>
 
                 {/* pega cada item da lista e executa uma função */}
